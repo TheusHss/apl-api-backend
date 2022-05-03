@@ -67,10 +67,7 @@ public class UsuarioController {
 
     @PostMapping("/cadastrar")
     public ResponseEntity cadastrarUsuario(@RequestBody Usuario usuario) {
-//        listaObj.adiciona(usuario);
         repository.save(usuario);
-//        funtionsCSV.gravaLista(listaObj, "log-cadastro");
-//        ListaObj<Usuario> listaObj = new ListaObj();
         return ResponseEntity.status(201).build();
     }
 

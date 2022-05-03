@@ -30,7 +30,8 @@ public class Usuario {
     @NotBlank
     @Column(name = "cpf", length = 11)
     private String cpf;
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id_endereco", referencedColumnName = "id_endereco")
     private Endereco endereco;
     @NotBlank
     @Column(name = "telefone")

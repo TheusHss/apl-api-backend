@@ -28,8 +28,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/bicicleta")
 public class BicicletaController {
-
-
     ArquivoTXT gravaTxt = new ArquivoTXT();
     PilhaObj<Bicicleta> pilha = new PilhaObj(500);
     PilhaObj<Bicicleta> pilhaAux = new PilhaObj(500);
