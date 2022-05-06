@@ -2,30 +2,20 @@
 
 <project name="imove"  basedir=".">
     <description>Builds, tests, and runs the project imove.</description>
-    
-    <target name="-post-compile">
 
-        <echo>Iniciando compilação das alteracoes realizadas.</echo>
- 
-        <path id="jrc.classpath">
-            <fileset dir="${build.dir}/../target/projeto-imove-0.0.1-SNAPSHOT.jar" includes="*.jar"/>
-        </path>
- 
- 
-        <delete>
-            <fileset dir="${build.classes.dir}" includes="*.jasper"/>
-        </delete>
- 
-        <jrc srcdir="relatorios"
-             destdir="${build.classes.dir}">
-            <classpath
-                refid="jrc.classpath"/>
-            <include
-                name="*.jrxml"/>
-        </jrc>
- 
-        <echo>Compilação das definições de relatórios finalizada!</echo>
- 
+    <target name="build" depends="compile">
+        <copy todir="target/classes/lib">
+            <fileset dir="lib/runtime" />
+        </copy>
+        <jar destfile="target/spring-boot-sample-actuator-${spring-boot.version}.jar" compress="false">
+            <fileset dir="target/classes" />
+            <fileset dir="src/main/resources" />
+            <zipfileset src="lib/loader/spring-boot-loader-jar-${spring-boot.version}.jar" />
+            <manifest>
+                <attribute name="Main-Class" value="org.springframework.boot.loader.JarLauncher" />
+                <attribute name="Start-Class" value="${start-class}" />
+            </manifest>
+        </jar>
     </target>
  
 </project>
