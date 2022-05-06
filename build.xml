@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="imove" default="default" basedir=".">
+    <description>Builds, tests, and runs the project imove.</description>
+    
+    <target name="-post-compile">
+
+        <echo>Iniciando compilação das alteracoes realizadas.</echo>
+ 
+        <path id="jrc.classpath">
+            <fileset dir="${build.dir}/../target/projeto-imove-0.0.1-SNAPSHOT.jar includes="*.jar"/>
+        </path>
+ 
+ 
+        <delete>
+            <fileset dir="${build.classes.dir}" includes="*.jasper"/>
+        </delete>
+ 
+        <jrc srcdir="relatorios"
+             destdir="${build.classes.dir}">
+            <classpath
+                refid="jrc.classpath"/>
+            <include
+                name="*.jrxml"/>
+        </jrc>
+ 
+        <echo>Compilação das definições de relatórios finalizada!</echo>
+ 
+    </target>
+ 
+</project>
