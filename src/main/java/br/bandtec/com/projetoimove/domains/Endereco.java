@@ -30,8 +30,6 @@ public class Endereco {
     @Column(name = "numero")
     private String numero;
 
-    @OneToOne(mappedBy = "endereco")
-    private Usuario usuario;
 
     public Endereco(Integer id, String cep, String estado, String cidade, String bairro, String rua, String numero) {
         this.id = id;
@@ -100,11 +98,4 @@ public class Endereco {
         this.numero = numero;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 }
