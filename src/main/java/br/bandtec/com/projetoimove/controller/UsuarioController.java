@@ -68,7 +68,7 @@ public class UsuarioController {
     @PostMapping("/cadastrar")
     public ResponseEntity cadastrarUsuario(@RequestBody Usuario usuario) {
         repository.save(usuario);
-        return ResponseEntity.status(201).build();
+        return ResponseEntity.status(201).body(usuario.getId());
     }
 
     @PutMapping("/alterar-cadastro")
@@ -211,6 +211,22 @@ public class UsuarioController {
         if (!usuarios.isEmpty()){
             for (Usuario b : usuarios){
                 if (b.getId().equals(id)){
+                    b.setImagem(byteArr);
+                    repository.save(b);
+                    return ResponseEntity.ok().build();
+                }
+            }
+
+        }
+        return ResponseEntity.status(404).build();
+    }
+    @PostMapping("/imagem/v2")
+    public ResponseEntity<FileInfo> uploadImagem(@RequestBody Usuario usuario) throws IOException {
+        List<Usuario> usuarios = repository.findAll();
+        byte[] byteArr = usuario.getImagem();
+        if (!usuarios.isEmpty()){
+            for (Usuario b : usuarios){
+                if (b.getId().equals(usuario.getId())){
                     b.setImagem(byteArr);
                     repository.save(b);
                     return ResponseEntity.ok().build();
