@@ -1,4 +1,5 @@
 br/bandtec/com/projetoimove/domains/Locacao.class
+br/bandtec/com/projetoimove/domains/Cartao.class
 br/bandtec/com/projetoimove/ListaObj.class
 br/bandtec/com/projetoimove/ArquivoTXT.class
 br/bandtec/com/projetoimove/repository/EnderecoRepository.class
@@ -13,7 +14,9 @@ br/bandtec/com/projetoimove/FilaObj.class
 br/bandtec/com/projetoimove/config/MailConfiguration.class
 br/bandtec/com/projetoimove/controller/EnderecoController.class
 br/bandtec/com/projetoimove/domains/Bicicleta.class
+br/bandtec/com/projetoimove/controller/CartaoController.class
 br/bandtec/com/projetoimove/repository/UsuarioRepository.class
+br/bandtec/com/projetoimove/repository/CartaoRepository.class
 br/bandtec/com/projetoimove/PilhaObj.class
 br/bandtec/com/projetoimove/controller/BicicletaController.class
 br/bandtec/com/projetoimove/domains/Endereco.class

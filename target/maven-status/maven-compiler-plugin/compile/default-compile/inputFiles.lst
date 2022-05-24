@@ -5,12 +5,14 @@
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/repository/RenovacaoRepository.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/repository/UsuarioRepository.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/repository/EnderecoRepository.java
+/home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/repository/CartaoRepository.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/ListaObj.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/config/MailConfiguration.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/model/Mail.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/PilhaObj.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/controller/EnderecoController.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/controller/BicicletaController.java
+/home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/controller/CartaoController.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/controller/RenovacaoController.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/service/MailService.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/Iterator.java
@@ -25,3 +27,4 @@
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/FilaObj.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/domains/Endereco.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/ProjetoImoveApplication.java
+/home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/domains/Cartao.java
