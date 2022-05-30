@@ -45,10 +45,12 @@ public class Usuario {
     private LocalDateTime dataLogin;
     @Column(name = "ultima_autenticacao")
     private LocalDateTime ultimaAutenticado;
+    @Column(name = "saldo")
+    private Double saldo;
 
 
 
-    public Usuario(String nome, byte[] imagem, String sobrenome, String email, String senha, String cpf, String telefone, String tipoUsuario, Boolean autenticado) {
+    public Usuario(String nome, byte[] imagem, String sobrenome, String email, String senha, String cpf, String telefone, String tipoUsuario, Boolean autenticado, Double sa[]) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.email = email;
@@ -57,11 +59,20 @@ public class Usuario {
         this.telefone = telefone;
         this.tipoUsuario = tipoUsuario;
         this.autenticado= autenticado;
+        this.saldo = saldo;
     }
 
     public Usuario(){
     }
 
+
+    public Double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(Double saldo) {
+        this.saldo = saldo;
+    }
 
     public byte[] getImagem() {
         return imagem;

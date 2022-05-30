@@ -251,4 +251,17 @@ public class UsuarioController {
         return ResponseEntity.status(404).build();
     }
 
+    @PostMapping("/adicionar-saldo/{id}")
+    public ResponseEntity adicionarSaldo(@PathVariable int id, @RequestBody Usuario usuario ) {
+        if (repository.existsById(id)) {
+            Usuario b = repository.getById(id);
+            Double saldo = b.getSaldo() + usuario.getSaldo();
+            b.setSaldo(saldo);
+            repository.save(b);
+            return ResponseEntity.status(200).build();
+        }
+        return ResponseEntity.status(404).build();
+    }
+
+
 }
