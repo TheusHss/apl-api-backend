@@ -90,7 +90,7 @@ public class CartaoController {
         List<Cartao> cartoes = CartaoRepository.findAll();
 
         if (cartoes.isEmpty()) {
-            return ResponseEntity.status(204).build();
+            return ResponseEntity.status(404).build();
         } else {
             List<Cartao> cartoesRetorno = new ArrayList<>();
 
@@ -102,11 +102,11 @@ public class CartaoController {
                     cartaoModificado.setNome(c.getNome());
                     cartaoModificado.setNumero(c.getNumero().substring(12, 16));
                     cartaoModificado.setPreferencial(c.getPreferencial());
-                    cartoesRetorno.add(cartaoModificado);
+                    return ResponseEntity.status(200).body(cartaoModificado);
                 }
             }
 
-            return ResponseEntity.status(200).body(cartoesRetorno);
+            return ResponseEntity.status(200).body();
         }
     }
 
