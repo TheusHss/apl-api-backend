@@ -88,6 +88,7 @@ public class CartaoController {
     @GetMapping("/preferencial/{cpf}")
     public ResponseEntity consultarCartaoPreferencia(@PathVariable String cpf){
         List<Cartao> cartoes = CartaoRepository.findAll();
+        Cartao cartaoModificado = new Cartao();
 
         if (cartoes.isEmpty()) {
             return ResponseEntity.status(404).build();
@@ -96,17 +97,15 @@ public class CartaoController {
 
             for (Cartao c : cartoes){
                 if (c.getCpf().equals(cpf) && c.getPreferencial()){
-                    Cartao cartaoModificado = new Cartao();
                     cartaoModificado.setId(c.getId());
                     cartaoModificado.setValidade(c.getValidade());
                     cartaoModificado.setNome(c.getNome());
                     cartaoModificado.setNumero(c.getNumero().substring(12, 16));
                     cartaoModificado.setPreferencial(c.getPreferencial());
-                    return ResponseEntity.status(200).body(cartaoModificado);
                 }
             }
 
-            return ResponseEntity.status(200).body();
+            return ResponseEntity.status(200).body(cartaoModificado);
         }
     }
 
