@@ -65,6 +65,25 @@ public class CartaoController {
             return ResponseEntity.status(200).body(cartoesRetorno);
         }
     }
+    
+    @PutMapping("/{id}")
+    public ResponseEntity atualizarCartao(@PathVariable int id) {
+        Cartao card = CartaoRepository.getById(id);
+        List<Cartao> cartoes = CartaoRepository.findAll();
+
+        for (Cartao c : cartoes) {
+            if (c.getPreferencial()) {
+                c.setPreferencial(false);
+                CartaoRepository.save(c);
+            }
+        }
+        card.setPreferencial(true);
+        CartaoRepository.save(card);
+
+        return ResponseEntity.status(200).build();
+
+
+    }
 
     @GetMapping("/preferencial/{cpf}")
     public ResponseEntity consultarCartaoPreferencia(@PathVariable String cpf){
