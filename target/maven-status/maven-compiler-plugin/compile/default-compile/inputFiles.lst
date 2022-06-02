@@ -12,8 +12,8 @@
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/PilhaObj.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/controller/EnderecoController.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/controller/BicicletaController.java
-/home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/controller/CartaoController.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/controller/RenovacaoController.java
+/home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/controller/CartaoController.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/service/MailService.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/Iterator.java
 /home/ec2-user/apl-api-backend/src/main/java/br/bandtec/com/projetoimove/service/MailServiceImpl.java
