@@ -76,7 +76,7 @@ public class LocacaoController {
         if (lista.isEmpty()) {
             return ResponseEntity.status(404).build();
         }
-        return ResponseEntity.status(200).body(locacao);
+        return ResponseEntity.status(200).body(lista);
     }
 
     @GetMapping("/consultar-locacao-uso-ultima/{id}")
