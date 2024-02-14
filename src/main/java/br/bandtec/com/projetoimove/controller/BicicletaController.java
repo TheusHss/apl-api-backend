@@ -245,6 +245,23 @@ public class BicicletaController {
         return ResponseEntity.status(404).build();
     }
 
+    @PostMapping("/imagem/{id}")
+    public ResponseEntity<FileInfo> uploadImagemB(@RequestParam("file") MultipartFile inputFile, @PathVariable int id) throws IOException {
+        byte [] byteArr= inputFile.getBytes();
+        List<Bicicleta> bicicleta = repository.findAll();
+        if (!bicicleta.isEmpty()){
+            for (Bicicleta b : bicicleta){
+                if (b.getId().equals(id)){
+                    b.setImagem(byteArr);
+                    repository.save(b);
+                    return ResponseEntity.ok().build();
+                }
+            }
+
+        }
+        return ResponseEntity.status(404).build();
+    }
+
 
     @GetMapping("/exportar-arquivo-total-bicicletas")
     public ResponseEntity<?> total() {

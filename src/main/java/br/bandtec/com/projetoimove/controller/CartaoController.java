@@ -21,11 +21,11 @@ public class CartaoController {
 
     @PostMapping
     public ResponseEntity cadastrarCartao(@RequestBody Cartao cartao) {
-        if (cartao.getPreferencial()){
+        if (cartao.getPreferencial()) {
             List<Cartao> cartoes = CartaoRepository.findAll();
-            for (Cartao c : cartoes){
-                if (c.getPreferencial()){
-                   c.setPreferencial(false);
+            for (Cartao c : cartoes) {
+                if (c.getPreferencial()) {
+                    c.setPreferencial(false);
                     CartaoRepository.save(c);
                 }
             }
@@ -41,8 +41,27 @@ public class CartaoController {
         return ResponseEntity.status(200).build();
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity atualizarCartao(@PathVariable int id) {
+        Cartao card = CartaoRepository.getById(id);
+        List<Cartao> cartoes = CartaoRepository.findAll();
+
+        for (Cartao c : cartoes) {
+            if (c.getPreferencial()) {
+                c.setPreferencial(false);
+                CartaoRepository.save(c);
+            }
+        }
+        card.setPreferencial(true);
+        CartaoRepository.save(card);
+
+        return ResponseEntity.status(200).build();
+
+
+    }
+
     @GetMapping("/{cpf}")
-    public ResponseEntity consultarCartao(@PathVariable String cpf){
+    public ResponseEntity consultarCartao(@PathVariable String cpf) {
         List<Cartao> cartoes = CartaoRepository.findAll();
 
         if (cartoes.isEmpty()) {
@@ -50,8 +69,8 @@ public class CartaoController {
         } else {
             List<Cartao> cartoesRetorno = new ArrayList<>();
 
-            for (Cartao c : cartoes){
-                if (c.getCpf().equals(cpf)){
+            for (Cartao c : cartoes) {
+                if (c.getCpf().equals(cpf)) {
                     Cartao cartaoModificado = new Cartao();
                     cartaoModificado.setId(c.getId());
                     cartaoModificado.setValidade(c.getValidade());
@@ -67,7 +86,7 @@ public class CartaoController {
     }
 
     @GetMapping("/preferencial/{cpf}")
-    public ResponseEntity consultarCartaoPreferencia(@PathVariable String cpf){
+    public ResponseEntity consultarCartaoPreferencia(@PathVariable String cpf) {
         List<Cartao> cartoes = CartaoRepository.findAll();
 
         if (cartoes.isEmpty()) {
@@ -75,13 +94,13 @@ public class CartaoController {
         } else {
             List<Cartao> cartoesRetorno = new ArrayList<>();
 
-            for (Cartao c : cartoes){
-                if (c.getCpf().equals(cpf) && c.getPreferencial()){
+            for (Cartao c : cartoes) {
+                if (c.getCpf().equals(cpf) && c.getPreferencial()) {
                     Cartao cartaoModificado = new Cartao();
                     cartaoModificado.setId(c.getId());
                     cartaoModificado.setValidade(c.getValidade());
                     cartaoModificado.setNome(c.getNome());
-                    cartaoModificado.setNumero(c.getNumero().substring(12, 16));
+                    cartaoModificado.setNumero(c.getNumero());
                     cartaoModificado.setPreferencial(c.getPreferencial());
                     cartoesRetorno.add(cartaoModificado);
                 }

@@ -65,6 +65,15 @@ public class UsuarioController {
         return ResponseEntity.status(404).build();
     }
 
+    @GetMapping("saldo/{id}")
+    public ResponseEntity saldoPorId(@PathVariable int id) {
+        if (repository.existsById(id)) {
+            Usuario u = repository.getById(id);
+            return ResponseEntity.status(200).body(u.getSaldo());
+        }
+        return ResponseEntity.status(404).build();
+    }
+
     @PostMapping("/cadastrar")
     public ResponseEntity cadastrarUsuario(@RequestBody Usuario usuario) {
         repository.save(usuario);

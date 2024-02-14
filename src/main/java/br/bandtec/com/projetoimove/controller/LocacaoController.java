@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -76,7 +77,7 @@ public class LocacaoController {
         if (lista.isEmpty()) {
             return ResponseEntity.status(404).build();
         }
-        return ResponseEntity.status(200).body(locacao);
+        return ResponseEntity.status(200).body(lista);
     }
 
     @GetMapping("/consultar-locacao-uso-ultima/{id}")
